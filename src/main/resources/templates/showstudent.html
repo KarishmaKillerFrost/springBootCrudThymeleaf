@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+</head>
+<body>
+
+	
+	
+	<h1>List Of Students</h1>
+
+	<table border=2>
+		<tr>
+			<th>Id</th>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th colspan=2>Operations</th>
+		</tr>
+
+		<th:block th:each="e : ${student}">
+			<tr>
+				<td th:text="${e.id}"></td>
+				<td th:text="${e.sname}"></td>
+				<td th:text="${e.lname}"></td>
+				<td><a th:href="@{updateStudent(id=${e.id})}">Update</a></td>
+				<td><a th:href="@{deleteStudent(id=${e.id})}">Delete</a></td>
+
+			</tr>
+			
+
+		</th:block>
+
+
+	</table>
+	<br><br>
+<a href="/form">Add New student</a>
+
+
+</body>
+</html>
